@@ -13,22 +13,22 @@ import static org.mockito.Mockito.verify;
 /**
  * Created by Adam on 3/3/16.
  */
-public class TicTacToeTest {
+public class BoardTest {
 
-    private TicTacToe ticTacToe ;
+    private Board board ;
     private PrintStream printStream ;
 
     @Before
     public void setUp() {
         printStream = mock(PrintStream.class) ;
-        ticTacToe = new TicTacToe(printStream) ;
+        board = new Board(printStream) ;
     }
 
     @Test
-    public void shouldDisplayBoardWhenStarting() {
+    public void shouldDisplayWhenStarting() {
 
         String expectedOutput =  "1|2|3\n" +  "-----\n" + "4|5|6\n" + "-----\n" + "7|8|9" ;
-        ticTacToe.display() ;
+        board.draw();
 
         verify(printStream).println(contains(expectedOutput)) ;
 

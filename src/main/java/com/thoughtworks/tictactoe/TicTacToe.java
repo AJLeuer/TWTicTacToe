@@ -7,13 +7,23 @@ import java.io.PrintStream;
  */
 public class TicTacToe {
 
+    public enum Mark {
+        X('x'),
+        O('o') ;
+
+        private final char value ;
+        private Mark(char c) { this.value = c ; }
+    }
+
     private PrintStream printStream ;
+    private Board board;
 
     TicTacToe(PrintStream printStream) {
         this.printStream = printStream ;
+        this.board = new Board(printStream) ;
     }
 
     public void display() {
-        printStream.println("1|2|3\n" +  "-----\n" + "4|5|6\n" + "-----\n" + "7|8|9" ) ;
+        board.draw() ;
     }
 }
