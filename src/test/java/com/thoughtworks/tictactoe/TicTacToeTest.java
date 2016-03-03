@@ -5,8 +5,6 @@ import org.junit.Test;
 
 import java.io.PrintStream;
 
-import static org.junit.Assert.*;
-import static org.mockito.Matchers.contains;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -23,12 +21,12 @@ public class TicTacToeTest {
     public void setUp() {
         printStream = mock(PrintStream.class) ;
         board = mock(Board.class) ;
-        ticTacToe = new TicTacToe(board) ;
+        ticTacToe = new TicTacToe(board, printStream, System.in) ;
     }
 
     @Test
-    public void shouldDisplayBoardWhenStarting() {
-        ticTacToe.display() ;
+    public void shouldTellBoardToDisplayWhenStarting() {
+        ticTacToe.startGame() ;
 
         verify(board).draw();
     }

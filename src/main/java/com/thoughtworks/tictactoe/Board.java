@@ -9,11 +9,6 @@ import java.util.List;
  */
 public class Board {
 
-    public enum XO {
-        X,
-        O
-    }
-
     private PrintStream printStream ;
     private char[] elements ;
 
@@ -24,7 +19,6 @@ public class Board {
         for (int i = 0; i < 9; i++) {
             elements[i] = Integer.toString(i + 1).charAt(0) ;
         }
-        int i = 0 ; //for debugging, remove
     }
 
     public void draw() {
@@ -50,7 +44,8 @@ public class Board {
         printStream.println(stringBuilder.toString()) ;
     }
 
-    public void addXorO(XO xo, int location) {
-
+    public void addXorO(char xo, int location) {
+        int index = location - 1 ;
+        elements[index] = xo ;
     }
 }

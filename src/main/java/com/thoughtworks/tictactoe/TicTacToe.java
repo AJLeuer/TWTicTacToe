@@ -1,5 +1,6 @@
 package com.thoughtworks.tictactoe;
 
+import java.io.InputStream;
 import java.io.PrintStream;
 
 /**
@@ -7,22 +8,19 @@ import java.io.PrintStream;
  */
 public class TicTacToe {
 
-    public enum Mark {
-        X('x'),
-        O('o') ;
-
-        private final char value ;
-        private Mark(char c) { this.value = c ; }
-    }
-
-    //private PrintStream printStream ;
+    private PrintStream printStream ;
     private Board board;
+    private Player player1 ;
 
-    TicTacToe(Board board) {
+    TicTacToe(Board board, PrintStream printStream, InputStream inputStream) {
+        this.printStream = printStream ;
         this.board = board;
+        this.player1 = new Player(new InputReceiver(inputStream), board, 'X') ;
     }
 
-    public void display() {
+    public void startGame() {
+        printStream.println("Player 1: Please enter the location to place an X:") ;
+        player1.makeMove();
         board.draw() ;
     }
 }

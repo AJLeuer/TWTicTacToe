@@ -21,17 +21,17 @@ public class PlayerTest {
     public void setUp() throws Exception {
         inputReceiver = mock(InputReceiver.class) ;
         board = mock(Board.class) ;
-        player = new Player(inputReceiver, board, Board.XO.X) ;
+        player = new Player(inputReceiver, board, 'X') ;
     }
 
-    @Test
+    @Test //i.ie testing make a move
     public void shouldAddXorOToCorrectLocationWhenUserEntersNumber() {
 
         when(inputReceiver.getInput()).thenReturn(1) ;
 
         player.makeMove() ;
 
-        verify(board).addXorO(Board.XO.X, 1) ;
+        verify(board).addXorO('X', 1) ;
     }
 
 }

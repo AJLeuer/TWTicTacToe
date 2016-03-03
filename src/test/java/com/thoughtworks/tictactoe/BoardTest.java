@@ -25,12 +25,23 @@ public class BoardTest {
     }
 
     @Test
-    public void shouldDisplayWhenStarting() {
+    public void shouldDisplayCorrectlyWhenStarting() {
 
         String expectedOutput =  "1|2|3\n" +  "-----\n" + "4|5|6\n" + "-----\n" + "7|8|9" ;
         board.draw();
 
         verify(printStream).println(contains(expectedOutput)) ;
 
+    }
+
+    @Test
+    public void shouldUpdateBoardDisplayWhenXorOAdded() {
+
+        board.addXorO('X', 6) ;
+        String expectedOutput =  "1|2|3\n" +  "-----\n" + "4|5|X\n" + "-----\n" + "7|8|9" ;
+
+        board.draw();
+
+        verify(printStream).println(contains(expectedOutput)) ;
     }
 }

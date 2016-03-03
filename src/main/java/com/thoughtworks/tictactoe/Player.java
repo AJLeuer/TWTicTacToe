@@ -9,9 +9,9 @@ public class Player {
 
     private InputReceiver inputReceiver ;
     private Board board;
-    private Board.XO xorO ;
+    private final char xorO ;
 
-    Player(InputReceiver inputReceiver, Board board, Board.XO xorO) {
+    Player(InputReceiver inputReceiver, Board board, char xorO) {
         this.inputReceiver = inputReceiver ;
         this.board = board ;
         this.xorO = xorO;
@@ -19,7 +19,7 @@ public class Player {
 
     public void makeMove() {
         int location = inputReceiver.getInput() ;
-        board.addXorO(this.xorO, 1);
+        board.addXorO(this.xorO, location);
     }
 
 }
