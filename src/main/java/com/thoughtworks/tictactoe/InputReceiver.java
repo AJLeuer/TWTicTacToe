@@ -12,7 +12,7 @@ public class InputReceiver {
     }
 
     public int getInput(){
-        return scanner.next().trim().charAt(0);
+        return scanner.nextInt() ;
     }
 
 }
