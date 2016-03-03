@@ -16,21 +16,20 @@ import static org.mockito.Mockito.verify;
 public class TicTacToeTest {
 
     private TicTacToe ticTacToe ;
+    private Board board ;
     private PrintStream printStream ;
 
     @Before
     public void setUp() {
         printStream = mock(PrintStream.class) ;
-        ticTacToe = new TicTacToe(printStream) ;
+        board = mock(Board.class) ;
+        ticTacToe = new TicTacToe(board) ;
     }
 
     @Test
     public void shouldDisplayBoardWhenStarting() {
-
-        String expectedOutput =  "1|2|3\n" +  "-----\n" + "4|5|6\n" + "-----\n" + "7|8|9" ;
         ticTacToe.display() ;
 
-        verify(printStream).println(contains(expectedOutput)) ;
-
+        verify(board).draw();
     }
 }

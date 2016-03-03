@@ -7,7 +7,8 @@ public class Main {
 
 
     public static void main(String[] arg) {
-        TicTacToe ticTacToe = new TicTacToe(System.out) ;
+        Board board = new Board(System.out) ;
+        TicTacToe ticTacToe = new TicTacToe(board) ;
         ticTacToe.display() ;
     }
 

@@ -15,12 +15,11 @@ public class TicTacToe {
         private Mark(char c) { this.value = c ; }
     }
 
-    private PrintStream printStream ;
+    //private PrintStream printStream ;
     private Board board;
 
-    TicTacToe(PrintStream printStream) {
-        this.printStream = printStream ;
-        this.board = new Board(printStream) ;
+    TicTacToe(Board board) {
+        this.board = board;
     }
 
     public void display() {
