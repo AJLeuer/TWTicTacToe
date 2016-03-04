@@ -2,6 +2,7 @@ package com.thoughtworks.tictactoe;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.IllegalFormatCodePointException;
 import java.util.List;
 
 /**
@@ -11,10 +12,12 @@ public class Board {
 
     private PrintStream printStream ;
     private char[] elements ;
+    private ArrayList<Integer> positionsTaken ;
 
     Board(PrintStream printStream) {
         this.printStream = printStream ;
         this.elements = new char[9] ;
+        this.positionsTaken = new ArrayList<>() ;
 
         for (int i = 0; i < 9; i++) {
             elements[i] = Integer.toString(i + 1).charAt(0) ;
@@ -44,8 +47,21 @@ public class Board {
         printStream.println(stringBuilder.toString()) ;
     }
 
-    public void addXorO(char xo, int location) {
-        int index = location - 1 ;
+    public void addXorO(char xo, int position) throws IllegalArgumentException {
+        if (positionIsTaken(position)) {
+            throw new IllegalArgumentException() ;
+        }
+        positionsTaken.add(position) ;
+
+        int index = position - 1 ;
         elements[index] = xo ;
+
+    }
+
+    private boolean positionIsTaken(int position) {
+        if (positionsTaken.contains(position)) {
+            return true ;
+        }
+        return false ;
     }
 }

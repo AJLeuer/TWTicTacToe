@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Matchers.contains;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 /**
  * Created by Adam on 3/3/16.
@@ -44,4 +45,6 @@ public class BoardTest {
 
         verify(printStream).println(contains(expectedOutput)) ;
     }
+
+
 }
